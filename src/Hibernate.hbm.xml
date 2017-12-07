@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="Employee" table="emp1">
+	<id name ="id" column="ID" type="integer">
+		<generator class="assigned"></generator>
+	</id>
+	<property name="name" column="NAME" type ="string"></property>
+	<property name="mobile" column="MOBILE" type ="long"></property>
+	<property name="email" column="EMAIL" type ="string"></property>
+</class>
+
+
+
+<class name="Employer" table="emp2">
+	<id name ="id" column="EMPLOYEE_ID" type="integer">
+		<generator class="assigned"></generator>
+	</id>
+	<property name="fname" column="FIRST_NAME" type ="string"></property>
+	<property name="lname" column="LAST_NAME" type ="string"></property>
+	<property name="email" column="EMAIL" type ="string"></property>
+	<property name="mobile" column="MOBILE" type ="string"></property>
+	<property name="role" column="JOB_ROLE" type ="string"></property>
+	<property name="salary" column="SALARY" type ="integer"></property>
+	<property name="bonus" column="BONUS" type ="integer"></property>
+</class>
+
+</hibernate-mapping>

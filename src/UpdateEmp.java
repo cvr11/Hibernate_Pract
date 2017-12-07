@@ -3,27 +3,30 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class InsertEmp {
+public class UpdateEmp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		Configuration cfg= new Configuration();
 		cfg.configure("Hibernate.cfg.xml");
 		SessionFactory sf = cfg.buildSessionFactory();
 		Session s = sf.openSession();
 		Transaction tx= s.beginTransaction();
-		Employee emp1 = new Employee();
-		emp1.setId(5);
-		emp1.setName("Nani");
-		emp1.setMobile(987564327);
-		emp1.setEmail("Nani4@gmail.com");
-		System.out.println("inserted ");
-		s.save(emp1);
+		/*
+		 * FOr selecting we can use two methods 
+		 * one is if you must had a record at the time we can use load method (will be there)
+		 * if the record may be in have a record in the database at the time we can use get method (may or may not be there )
+		 * */
+		//Employee emp = (Employee)s.get(Employee.class, new Integer(1));
+		Employee emp = (Employee)s.load(Employee.class, new Integer(4));
+		emp.setMobile(88865538);
+		s.update(emp);
 		s.flush();
 		tx.commit();
 		s.close();
 		
-		
+
 	}
 
 }
